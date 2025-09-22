@@ -13,7 +13,8 @@ output "rds_port" {
   value       = module.rds_mysql.port
 }
 
-output "rds_security_group_id" {
-  description = "ID de la SG del RDS."
-  value       = module.network.rds_sg_id
-}
+
+output "vpc_id"               { value = module.network.vpc_id }
+output "public_subnet_ids"    { value = module.network.public_subnet_ids }
+output "private_subnet_ids"   { value = module.network.private_subnet_ids }
+
