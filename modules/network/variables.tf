@@ -55,3 +55,7 @@ variable "tags" {
   default     = {}
   description = "Mapa de tags que se aplicarán a los recursos creados por este módulo."
 }
+variable "aws_region" {
+  type        = string
+  description = "Región AWS para construir nombres de servicio (ej.: 'us-east-1'). Pasa este valor desde el root module (terraform.tfvars o -var)."
+}

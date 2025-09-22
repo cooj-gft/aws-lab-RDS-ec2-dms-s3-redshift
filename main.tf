@@ -15,6 +15,7 @@ module "network" {
   allowed_ssh_cidrs       = var.allowed_ssh_cidrs
 
   tags                    = local.common_tags
+  aws_region              = var.aws_region
 }
 
 # --- EC2 PRIVADA

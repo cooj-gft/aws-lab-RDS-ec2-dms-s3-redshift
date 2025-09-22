@@ -201,7 +201,7 @@ resource "aws_security_group_rule" "vpce_in_443_from_ec2" {
 resource "aws_vpc_endpoint" "ssm" {
   count              = var.enable_ssm_endpoints ? 1 : 0
   vpc_id             = aws_vpc.this.id
-  service_name       = "com.amazonaws.${data.aws_region.current.name}.ssm"
+  service_name       = "com.amazonaws.${var.aws_region}.ssm"
   vpc_endpoint_type  = "Interface"
   subnet_ids         = values(aws_subnet.private)[*].id
   security_group_ids = [aws_security_group.vpce_ssm_sg[0].id]
@@ -212,7 +212,7 @@ resource "aws_vpc_endpoint" "ssm" {
 resource "aws_vpc_endpoint" "ec2messages" {
   count              = var.enable_ssm_endpoints ? 1 : 0
   vpc_id             = aws_vpc.this.id
-  service_name       = "com.amazonaws.${data.aws_region.current.name}.ec2messages"
+  service_name       = "com.amazonaws.${var.aws_region}.ec2messages"
   vpc_endpoint_type  = "Interface"
   subnet_ids         = values(aws_subnet.private)[*].id
   security_group_ids = [aws_security_group.vpce_ssm_sg[0].id]
@@ -223,7 +223,7 @@ resource "aws_vpc_endpoint" "ec2messages" {
 resource "aws_vpc_endpoint" "ssmmessages" {
   count              = var.enable_ssm_endpoints ? 1 : 0
   vpc_id             = aws_vpc.this.id
-  service_name       = "com.amazonaws.${data.aws_region.current.name}.ssmmessages"
+  service_name       = "com.amazonaws.${var.aws_region}.ssmmessages"
   vpc_endpoint_type  = "Interface"
   subnet_ids         = values(aws_subnet.private)[*].id
   security_group_ids = [aws_security_group.vpce_ssm_sg[0].id]
