@@ -1,4 +1,7 @@
 aws_region  = "us-east-1"
+stack_id    = "mi-stack-id"
+repository_url = "https://github.com/cooj-gft/aws-lab-RDS-ec2-dms-s3-redshift"
+sponsor     = "mi-sponsor"
 name_prefix = "mi-org-app-dev"
 
 # --- VPC

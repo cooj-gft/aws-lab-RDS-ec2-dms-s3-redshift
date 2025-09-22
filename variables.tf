@@ -2,7 +2,18 @@ variable "aws_region" {
   type        = string
   description = "Región AWS (ej: us-east-1)."
 }
-
+variable "stack_id" {
+  description = "The stack identifier"
+  type        = string
+}
+variable "repository_url" {
+  description = "The URL of the repository"
+  type        = string
+}
+variable "sponsor" {
+  description = "The sponsor for tagging AWS resources"
+  type        = string
+}
 variable "name_prefix" {
   type        = string
   description = "Prefijo para nombrar recursos (org-app-env)."
@@ -110,11 +121,48 @@ variable "db_password"   {
   }
 }
 
-variable "rds_instance_class"       { type = string  default = "db.t3.micro" }
-variable "rds_engine_version"       { type = string } # ej: "8.0.35"
-variable "rds_allocated_storage"    { type = number  default = 20 }
-variable "rds_max_allocated_storage"{ type = number  default = 100 }
-variable "rds_multi_az"             { type = bool    default = true }
-variable "rds_backup_retention_days"{ type = number  default = 7 }
-variable "rds_deletion_protection"  { type = bool    default = true }
-variable "kms_key_id"               { type = string  default = null }
+variable "rds_instance_class" {
+  type        = string
+  default     = "db.t3.micro"
+  description = "Clase de instancia RDS (ej.: db.t3.micro, db.t3.small)."
+}
+
+variable "rds_engine_version" {
+  type        = string
+  description = "Versión del motor RDS (ej.: 8.0.35)."
+}
+
+variable "rds_allocated_storage" {
+  type        = number
+  default     = 20
+  description = "Almacenamiento asignado para la base de datos (GB)."
+}
+
+variable "rds_max_allocated_storage" {
+  type        = number
+  default     = 100
+  description = "Almacenamiento máximo asignado para la base de datos (GB)."
+}
+
+variable "rds_multi_az" {
+  type        = bool
+  default     = true
+  description = "Habilita la implementación Multi-AZ para alta disponibilidad."
+}
+
+variable "rds_backup_retention_days" {
+  type        = number
+  default     = 7
+  description = "Número de días para retener copias de seguridad."
+}
+variable "rds_deletion_protection" {
+  type        = bool
+  default     = true
+  description = "Protección contra eliminación de la instancia RDS (true evita borrado accidental)."
+}
+
+variable "kms_key_id" {
+  type        = string
+  default     = null
+  description = "ID/ARN de la clave KMS usada para cifrado. Si es null se usa la clave gestionada por AWS."
+}
