@@ -36,7 +36,7 @@ module "ec2" {
 
 # --- RDS MySQL PRIVADO
 module "rds_mysql" {
-  source = "./modules/rds-mysql"
+  source = "./modules/rds"
 
   name_prefix           = var.name_prefix
   db_subnet_group_name  = module.network.rds_db_subnet_group_name
