@@ -1,13 +1,3 @@
-locals {
-  common_tags = merge(
-    {
-      Project   = var.name_prefix
-      ManagedBy = "Terraform"
-    },
-    var.tags
-  )
-}
-
 # --- MÓDULO DE RED (SGs + DB Subnet Group)
 module "network" {
   source = "./modules/network"
@@ -39,7 +29,7 @@ module "ec2" {
 
 # --- MÓDULO DE RDS MySQL (privado)
 module "rds_mysql" {
-  source = "./modules/rds-mysql"
+  source = "./modules/rds"
 
   name_prefix            = var.name_prefix
   db_subnet_group_name   = module.network.rds_db_subnet_group_name
