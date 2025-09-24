@@ -21,8 +21,8 @@ allowed_ssh_cidrs  = []
 ec2_instance_type          = "t3.micro"
 ec2_ami_id                 = null
 ec2_ami_ssm_parameter_path = "/aws/service/ami-amazon-linux-latest/al2023-ami-kernel-default-x86_64"
-enable_ssm                 = true
-
+ec2_public_key_path = "files/ec2.pub"
+enable_ssm          = false # ponlo en true si no usas clave SSH
 # --- RDS
 db_name                    = "appdb"
 db_username                = "admin"

@@ -97,10 +97,10 @@ variable "ec2_ami_ssm_parameter_path" {
   default     = "/aws/service/ami-amazon-linux-latest/al2023-ami-kernel-default-x86_64"
 }
 
-variable "ec2_key_name" {
+variable "ec2_public_key_path" {
   type        = string
   default     = null
-  description = "Par de llaves SSH (opcional si usas SSM)."
+  description = "Path a la clave pública SSH (opcional si usas SSM)."
 }
 
 variable "enable_ssm" {

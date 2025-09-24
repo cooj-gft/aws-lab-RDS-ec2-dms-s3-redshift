@@ -46,9 +46,3 @@ variable "ec2_public_key_path" {
   default     = ""
   description = "Ruta local al archivo .pub para crear un aws_key_pair (opcional). Si está vacía se espera que el key pair ya exista en AWS o que se use SSM."
 }
-
-variable "ec2_key_name" {
-  type        = string
-  default     = null
-  description = "Nombre del key pair a usar en aws_instance. Si es null y ec2_public_key_path no está vacío, Terraform creará el key pair."
-}

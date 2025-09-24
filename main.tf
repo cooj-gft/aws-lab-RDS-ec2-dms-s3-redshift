@@ -30,7 +30,7 @@ module "ec2" {
   ami_id                 = var.ec2_ami_id
   ami_ssm_parameter_path = var.ec2_ami_ssm_parameter_path
   enable_ssm             = var.enable_ssm
-
+  ec2_public_key_path    = var.ec2_public_key_path
   tags                   = local.common_tags
 }
 
@@ -54,6 +54,5 @@ module "rds_mysql" {
   deletion_protection   = var.rds_deletion_protection
   kms_key_id            = var.kms_key_id
   apply_immediately     = true
-
   tags                  = local.common_tags
 }
