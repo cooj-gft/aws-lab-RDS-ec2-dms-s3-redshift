@@ -30,12 +30,6 @@ variable "ami_ssm_parameter_path" {
   description = "Parámetro SSM de la AMI a usar si ami_id es null."
 }
 
-variable "key_name" {
-  type        = string
-  default     = null
-  description = "Par de llaves para SSH."
-}
-
 variable "enable_ssm" {
   type        = bool
   default     = true
@@ -46,4 +40,15 @@ variable "tags" {
   type        = map(string)
   default     = {}
   description = "Etiquetas comunes."
+}
+variable "ec2_public_key_path" {
+  type        = string
+  default     = ""
+  description = "Ruta local al archivo .pub para crear un aws_key_pair (opcional). Si está vacía se espera que el key pair ya exista en AWS o que se use SSM."
+}
+
+variable "ec2_key_name" {
+  type        = string
+  default     = null
+  description = "Nombre del key pair a usar en aws_instance. Si es null y ec2_public_key_path no está vacío, Terraform creará el key pair."
 }

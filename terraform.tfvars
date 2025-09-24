@@ -14,14 +14,13 @@ single_nat_gateway   = true
 enable_ssm_endpoints = false    # ponlo en true si desactivas NAT
 
 # --- SSH privado (idealmente usa SSM y deja esto vacío)
-allowed_ssh_sg_ids = ["sg-BASTIONAAAA"]
+allowed_ssh_sg_ids = []
 allowed_ssh_cidrs  = []
 
 # --- EC2
 ec2_instance_type          = "t3.micro"
 ec2_ami_id                 = null
 ec2_ami_ssm_parameter_path = "/aws/service/ami-amazon-linux-latest/al2023-ami-kernel-default-x86_64"
-ec2_key_name               = "mi-par-llaves"
 enable_ssm                 = true
 
 # --- RDS

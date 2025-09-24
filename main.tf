@@ -11,7 +11,7 @@ module "network" {
   single_nat_gateway      = var.single_nat_gateway
   enable_ssm_endpoints    = var.enable_ssm_endpoints
 
-  allowed_ssh_sg_ids      = var.allowed_ssh_sg_ids
+  allowed_ssh_sg_ids      = concat(var.allowed_ssh_sg_ids, [module.ec2.ec2_sg_id])
   allowed_ssh_cidrs       = var.allowed_ssh_cidrs
 
   tags                    = local.common_tags
@@ -29,7 +29,6 @@ module "ec2" {
   instance_type          = var.ec2_instance_type
   ami_id                 = var.ec2_ami_id
   ami_ssm_parameter_path = var.ec2_ami_ssm_parameter_path
-  key_name               = var.ec2_key_name
   enable_ssm             = var.enable_ssm
 
   tags                   = local.common_tags
