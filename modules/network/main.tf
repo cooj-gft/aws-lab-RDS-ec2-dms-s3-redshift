@@ -146,6 +146,17 @@ resource "aws_security_group_rule" "ec2_ssh_from_cidr" {
   description       = "SSH privado desde ${each.value}"
 }
 
+resource "aws_security_group_rule" "ec2_egress_all" {
+  type              = "egress"
+  from_port         = 0
+  to_port           = 0
+  protocol          = "-1"
+  cidr_blocks       = ["0.0.0.0/0"]
+  ipv6_cidr_blocks  = ["::/0"]
+  security_group_id = aws_security_group.ec2_sg.id
+  description       = "Permitir todo el tráfico de salida"
+}
+
 # Egress por defecto: AWS crea "allow all". No añadimos inline rules.
 
 resource "aws_security_group" "rds_sg" {
@@ -163,6 +174,17 @@ resource "aws_security_group_rule" "rds_mysql_from_ec2" {
   security_group_id        = aws_security_group.rds_sg.id
   source_security_group_id = aws_security_group.ec2_sg.id
   description              = "MySQL desde EC2"
+}
+
+resource "aws_security_group_rule" "ec2_egress_all" {
+  type              = "egress"
+  from_port         = 0
+  to_port           = 0
+  protocol          = "-1"
+  cidr_blocks       = ["0.0.0.0/0"]
+  ipv6_cidr_blocks  = ["::/0"]
+  security_group_id = aws_security_group.rds_sg.id
+  description       = "Permitir todo el tráfico de salida"
 }
 
 # ------------------------------
