@@ -50,7 +50,7 @@ resource "aws_instance" "this" {
   subnet_id                   = var.subnet_id
   vpc_security_group_ids      = [var.ec2_sg_id]
   associate_public_ip_address = false
-  key_name                    = aws_key_pair.from_pub[0].key_name
+  key_name                    = aws_key_pair.from_pub.key_name
 
   metadata_options {
     http_tokens = "required"
