@@ -146,7 +146,7 @@ resource "aws_security_group_rule" "ec2_ssh_from_cidr" {
   description       = "SSH privado desde ${each.value}"
 }
 
-resource "aws_security_group_rule" "ec2_egress_all" {
+resource "aws_security_group_rule" "ec2_egress_all_ec2" {
   type              = "egress"
   from_port         = 0
   to_port           = 0
@@ -176,7 +176,7 @@ resource "aws_security_group_rule" "rds_mysql_from_ec2" {
   description              = "MySQL desde EC2"
 }
 
-resource "aws_security_group_rule" "ec2_egress_all" {
+resource "aws_security_group_rule" "ec2_egress_all_rds" {
   type              = "egress"
   from_port         = 0
   to_port           = 0
