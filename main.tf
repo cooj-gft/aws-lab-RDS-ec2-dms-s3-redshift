@@ -11,7 +11,7 @@ module "network" {
   single_nat_gateway      = var.single_nat_gateway
   enable_ssm_endpoints    = var.enable_ssm_endpoints
 
-  allowed_ssh_sg_ids      = concat(var.allowed_ssh_sg_ids, [module.ec2.ec2_sg_id])
+  allowed_ssh_sg_ids      = var.allowed_ssh_sg_ids
   allowed_ssh_cidrs       = var.allowed_ssh_cidrs
 
   tags                    = local.common_tags
