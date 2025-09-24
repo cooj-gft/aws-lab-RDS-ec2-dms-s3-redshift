@@ -33,7 +33,7 @@ rds_allocated_storage      = 20
 rds_max_allocated_storage  = 100
 rds_multi_az               = true
 rds_backup_retention_days  = 7
-rds_deletion_protection    = true
+rds_deletion_protection    = false # en true la bd nos e deja elimianr
 
 tags = {
   owner       = "data-team"

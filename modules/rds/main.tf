@@ -23,7 +23,7 @@ resource "aws_db_instance" "mysql" {
   kms_key_id                 = var.kms_key_id
 
   auto_minor_version_upgrade = true
-  skip_final_snapshot        = false
+  skip_final_snapshot        = true
 
   tags = var.tags
 }
