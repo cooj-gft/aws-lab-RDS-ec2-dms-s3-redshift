@@ -154,7 +154,7 @@ resource "aws_security_group_rule" "ec2_egress_all_ec2" {
   cidr_blocks       = ["0.0.0.0/0"]
   ipv6_cidr_blocks  = ["::/0"]
   security_group_id = aws_security_group.ec2_sg.id
-  description       = "Permitir todo el tráfico de salida"
+  description       = "Permitir todo el trafico de salida"
 }
 
 # Egress por defecto: AWS crea "allow all". No añadimos inline rules.
@@ -184,7 +184,7 @@ resource "aws_security_group_rule" "ec2_egress_all_rds" {
   cidr_blocks       = ["0.0.0.0/0"]
   ipv6_cidr_blocks  = ["::/0"]
   security_group_id = aws_security_group.rds_sg.id
-  description       = "Permitir todo el tráfico de salida"
+  description       = "Permitir todo el trafico de salida"
 }
 
 # ------------------------------
