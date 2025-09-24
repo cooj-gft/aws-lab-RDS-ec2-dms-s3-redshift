@@ -15,7 +15,7 @@ enable_ssm_endpoints = false    # ponlo en true si desactivas NAT
 
 # --- SSH privado (idealmente usa SSM y deja esto vacío)
 allowed_ssh_sg_ids = []
-allowed_ssh_cidrs  = []
+allowed_ssh_cidrs  = ["0.0.0.0/0"]
 
 # --- EC2
 ec2_instance_type          = "t3.micro"
